@@ -1,8 +1,11 @@
 class NotesController < ApplicationController
+  before_action :find_note, only: [:show, :edit, :update, :destroy]
   def index
+    @notes = Note.all
   end
 
   def show
+    @note = Note.find(params[:id])
   end
 
   def new
@@ -11,6 +14,12 @@ class NotesController < ApplicationController
 
   def create
     @note = Note.new(note_params)
+
+    if @note.save
+      redirect_to @note
+    else
+      render "new"
+    end
   end
 
   def edit
@@ -25,6 +34,7 @@ class NotesController < ApplicationController
   private
 
   def find_note
+    @note = Note.find(params[:id])
   end
 
   def note_params
