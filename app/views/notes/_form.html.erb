@@ -1,0 +1,7 @@
+<%= simple_form_for @note do |f| %>
+  <div>
+    <%= f.input :title, class: "input input-bordered w-full max-w-xs" %>
+    <%= f.input :content, class: "textarea textarea-primary" %>
+    <%= f.button :submit %>
+  </div>
+<% end %>
