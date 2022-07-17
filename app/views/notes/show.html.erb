@@ -14,7 +14,7 @@
     <div>
       <%= link_to 'All Notes', notes_path, class: "btn btn-primary" %>
       <%= link_to "Edit", edit_note_path(@note), class: "btn btn-secondary" %>
-      <%= link_to "Delete", note_path(@note), method: :delete, data: {Confirm: "Are you sure?"} , class: "btn btn-error"  %>
+      <%= link_to "Delete", note_path(@note), method: :delete, data: { confirm: "Are you sure?"} , class: "btn btn-error"  %>
     </div>
   </body>
 </html>
