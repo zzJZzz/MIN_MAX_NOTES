@@ -8,9 +8,12 @@
   </head>
   <body>
     <div>
-      <% @note.each do |note| %>
+      <% @notes.each do |note| %>
         <div class="link link-primary">
           <%= link_to note.title, notes_path %>
+        </div>
+        <div>
+          <%= note.content %>
         </div>
         <div class="divider"></div>
       <% end %>
