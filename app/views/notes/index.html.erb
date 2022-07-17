@@ -8,16 +8,24 @@
   </head>
   <body>
     <div>
-      <% @notes.each do |note| %>
-        <div class="link link-primary">
-          <%= link_to note.title, note %>
-        </div>
-        <div>
-          <%= note.content %>
-        </div>
-        <div class="divider"></div>
-      <% end %>
+      <header>
+        <div> <%= link_to 'New Note', new_note_path, class: "btn btn-primary" %></div>
+      </header>
     </div>
-    <%= link_to 'New Note', new_note_path, class: "btn btn-primary" %>
+    <div>
+      <div class="grid content-center justify-center grid-cols-3 gap-2 overflow-hidden flex-center grid-rows-9">
+        <% @notes.each do |note| %>
+          <div class="m-2 shadow-xl card w-96 bg-base-100">
+            <div class="card-body">
+              <h2 class="card-title"><%= note.title %></h2>
+              <%= note.content %>
+              <div class="justify-end card-actions">
+                <%= link_to note.title, note, class: "btn btn-active" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </body>
 </html>
