@@ -1,0 +1,13 @@
+<% if flash.any? %>
+  <% flash.each do |type, msg| %>
+    <% if type == 'notice' %>
+      <div class = "justify-center shadow-lg alert-warning">
+        <%= msg %>
+      </div>
+    <% else %>
+      <div class = "justify-center shadow-lg alert alert-error">
+        <%= msg %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
