@@ -17,14 +17,20 @@
         <% @notes.each do |note| %>
           <div class="m-2 shadow-xl card w-96 bg-base-100">
             <div class="card-body">
-              <h2 class="card-title"><%= note.title %></h2>
-              <%= note.content %>
+              <h2 class="card-title"><%= note.title.upcase %></h2>
+              <p> <%= note.content[0..25] + "..." %></p>
               <div class="justify-end card-actions">
-                <%= link_to "View Note", note, class: "btn btn-active" %>
+                <%= link_to "View Note", note, class: "btn btn-active absolute bottom-0 right-0 m-2" %>
               </div>
             </div>
           </div>
         <% end %>
+      </div>
+      <div class="justify-center btn-group">
+        <button class="btn">1</button>
+        <button class="btn btn-active">2</button>
+        <button class="btn">3</button>
+        <button class="btn">4</button>
       </div>
     </div>
   </body>
