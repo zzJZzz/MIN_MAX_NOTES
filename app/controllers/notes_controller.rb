@@ -5,15 +5,15 @@ class NotesController < ApplicationController
   end
 
   def show
-    @note = Note.find(params[:id])
+    @note = Note.friendly.find(params[:id])
   end
 
   def new
-    @note = current_user.notes.build
+    @note = current_user.friendly.notes.build
   end
 
   def create
-    @note = current_user.notes.build(note_params)
+    @note = current_user.friendly.notes.build(note_params)
 
     if @note.save
       redirect_to @note
@@ -23,7 +23,7 @@ class NotesController < ApplicationController
   end
 
   def edit
-    @note = Note.find(params[:id])
+    @note = Note.friendly.find(params[:id])
   end
 
   def update
@@ -35,7 +35,7 @@ class NotesController < ApplicationController
   end
 
   def destroy
-    @note = Note.find(params[:id])
+    @note = Note.friendly.find(params[:id])
     @note.destroy
     redirect_to notes_path
   end
@@ -43,7 +43,7 @@ class NotesController < ApplicationController
   private
 
   def find_note
-    @note = Note.find(params[:id])
+    @note = Note.friendly.find(params[:id])
   end
 
   def note_params

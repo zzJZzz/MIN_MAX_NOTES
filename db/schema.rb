@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_18_013715) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_22_221933) do
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -28,6 +28,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_18_013715) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "slug"
+    t.index ["slug"], name: "index_notes_on_slug", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,10 +40,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_18_013715) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "slug"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
 end
