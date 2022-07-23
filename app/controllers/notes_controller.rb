@@ -5,7 +5,7 @@ class NotesController < ApplicationController
   end
 
   def show
-    @note = Note.friendly.find(params[:id])
+    @note = Note.find(params[:id])
   end
 
   def new
@@ -23,7 +23,7 @@ class NotesController < ApplicationController
   end
 
   def edit
-    @note = Note.friendly.find(params[:id])
+    @note = Note.find(params[:id])
   end
 
   def update
@@ -35,7 +35,7 @@ class NotesController < ApplicationController
   end
 
   def destroy
-    @note = Note.friendly.find(params[:id])
+    @note = Note.find(params[:id])
     @note.destroy
     redirect_to notes_path
   end
@@ -43,7 +43,7 @@ class NotesController < ApplicationController
   private
 
   def find_note
-    @note = Note.friendly.find(params[:id])
+    @note = Note.find(params[:id])
   end
 
   def note_params
